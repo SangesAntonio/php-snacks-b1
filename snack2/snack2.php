@@ -58,8 +58,25 @@ $dates = array_keys($posts_by_dates);
 
 <body>
 
-    <?php for ($i = 0; $i < count($dates); $i++) { ?>
+    <?php for ($i = 0; $i < count($posts_by_dates); $i++) {
+        $date = $dates[$i];
+        $posts = $posts_by_dates[$date];
+
+    ?>
         <h1><?= $dates[$i] ?></h1>
+        <ul>
+
+            <?php for ($y = 0; $y < count($posts); $y++) {
+                $post = $posts[$y];
+            ?>
+                <li>
+                    <h1><?= $post['title'] ?></h1>
+                </li>
+                <li><?= $post['author'] ?></li>
+                <li><?= $post['text'] ?></li>
+
+            <?php } ?>
+        </ul>
 
 
     <?php } ?>
