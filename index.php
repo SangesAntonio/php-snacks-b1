@@ -3,27 +3,30 @@
 
 
 
-$name = $_GET ? $_GET['name'] : '';
-$mail = $_GET ? $_GET['mail'] : '';
-$age = $_GET ? $_GET['age'] : '';
+$name = $_GET['name'] ?? '';
+$mail = $_GET['mail'] ?? '';
+$age = $_GET['age'] ?? '';
 
-$nameAccess = false;
-$mailAccess = false;
-$ageAccess = false;
-if (strlen($name) > 3) {
-    $nameAccess = true;
+$name_access = false;
+$mail_access = false;
+$age_access = false;
+
+
+
+if (mb_strlen($name) > 3) {
+    $name_access = true;
 }
-if (is_numeric($mail) && str_contains($mail, '.') && str_contains($mail, '@')) {
-    $mailAccess = true;
+if (strpos($mail, '.') && strpos($mail, '@')) {
+    $mail_access = true;
 }
 if (is_numeric($age)) {
-    $ageAccess = true;
+    $age_access = true;
 }
 
-var_dump($name, $mail, $age);
-var_dump($nameAccess, $mailAccess, $ageAccess);
 $message = 'Accesso negato';
-if ($nameAccess && $mailAccess && $ageAccess) $message = 'Accesso riuscito';
+if ($name_access && $mail_access && $age_access) $message = 'Accesso riuscito';
+var_dump($name, $mail, $age);
+var_dump($name_access, $mail_access, $age_access);
 ?>
 
 <!DOCTYPE html>

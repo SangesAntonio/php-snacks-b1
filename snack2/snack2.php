@@ -1,7 +1,7 @@
 <?php
 /*Creare un array di array. Ogni array figlio avrà come chiave una data in questo formato: DD-MM-YYYY es 01-01-2007 e come valore un array di post associati a quella data. Stampare ogni data con i relativi post.*/
 
-$posts = [
+$posts_by_dates = [
 
     '10/01/2019' => [
         [
@@ -41,10 +41,8 @@ $posts = [
     ],
 ];
 
-$hours = array_keys($posts);
-$item = array_keys($hours);
-var_dump($hours);
-var_dump($item);
+$dates = array_keys($posts_by_dates);
+
 
 ?>
 
@@ -60,12 +58,9 @@ var_dump($item);
 
 <body>
 
-    <?php for ($i = 0; $i < count($posts); $i++) { ?>
-        <h1><?= $posts[$i] ?></h1>
-        <?php for ($y = 0; $y < count($posts[$i]); $i++) { ?>
-            <h1><?= $posts[$i][$y] ?></h1>
+    <?php for ($i = 0; $i < count($dates); $i++) { ?>
+        <h1><?= $dates[$i] ?></h1>
 
-        <?php } ?>
 
     <?php } ?>
 
